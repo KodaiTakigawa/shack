@@ -1,0 +1,24 @@
+{% include 'layouts/head.html.twig' %}
+<body>
+{% dump(hack) %}
+    {%  include 'layouts/header.html.twig' with { 'header': hack.getTitle(), 'url': path('hack_list', '{'snack_id': hack.getSnackId()}': ) } %}
+    <div class="container m-4">
+        <div class="row d-flex flex-column">
+            <div class="column">
+                <h1>Material</h1>
+            </div>
+            <div>{{ hack.getMaterials() }}</div>
+        </div>
+        <div class="row d-flex flex-column">
+            <div class="column">
+                <h1>How to hack</h1>
+            </div>
+            <div>{{ hack.getDetail() }}</div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-end fixed-bottom m-3">
+        <div class="rounded"><a href="{{ path('edit_hack', {'snack_id': hack.getSnackId(), 'hack_id': hack.getId()}) }}"><h1>Edit</h1></a></div>
+    </div>
+    {% include 'layouts/script.html.twig' %}
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% include 'layouts/head.html.twig' %}
+<body>
+    {%  include 'layouts/header.html.twig' with { 'header': 'Search' } %}
+    <form action="{{ app.request.uri }}" method="post">
+        <div class="form-group">
+            <label>Title</label>
+            <input class="form-control form-control-lg" type="text" name="title" value="{{ hack.title }}">
+        </div>
+        <div class="form-group">
+            <label>Materials</label>
+            <textarea class="form-control form-control-lg" type="textarea" name="materials">{{ hack.materials }}</textarea>
+        </div>
+        <div class="form-group">        
+            <label>How to hack</label>
+            <textarea class="form-control form-control-lg" type="textarea" name="detail">{{ hack.detail }}</textarea>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Hack</button>
+        </div>
+    </form>
+    <div>
+        <a class="btn btn-outline-danger" href="{{ path('delete_hack' ,{'snack_id': hack.getSnackId(), 'hack_id': hack.getId()}) }}">Delete</a>
+    </div>
+    {% include 'layouts/script.html.twig' %}
+</body>
+</html>

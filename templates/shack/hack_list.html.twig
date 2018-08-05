@@ -1,0 +1,14 @@
+{% include 'layouts/head.html.twig' %}
+<body>
+    {%  include 'layouts/header.html.twig' with { 'header': "Hack #{snack_name}" } %}
+    <div class="list-group">
+        {% for hack in hack_list %}
+        <a href="{{ path('hack_detail', {'snack_id': hack.getSnackId(), 'hack_id': hack.getId()}) }}" class="list-group-item list-group-item-action">{{ hack.getTitle() }}</a>
+        {% endfor %}
+    </div>
+    <div class="d-flex justify-content-end fixed-bottom m-3">
+        <div class="rounded"><a href="{{ path('add_hack', {'snack_id': snack_id}) }}"><h1>Add</h1></a></div>
+    </div>
+    {% include 'layouts/script.html.twig' %}
+</body>
+</html>

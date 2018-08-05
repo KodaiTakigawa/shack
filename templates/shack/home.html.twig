@@ -1,0 +1,14 @@
+{% include 'layouts/head.html.twig' %}
+<body>
+    {%  include 'layouts/header.html.twig' with { 'header': 'Search' } %}
+    <form action="{{ path('result') }}" method="get">
+        <div class="form-group">
+            <label>何のお菓子(Snack)をHackしますか？</label>
+            <input class="form-control form-control-lg" type="text" name="search">
+            <button type="submit" class="btn btn-primary">Hack</button>
+        </div>
+    </form>
+
+    {% include 'layouts/script.html.twig' %}
+</body>
+</html>

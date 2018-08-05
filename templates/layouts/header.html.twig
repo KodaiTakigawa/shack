@@ -1,0 +1,12 @@
+
+<div class="d-flex justify-content-between shadow-sm p-3 mb-5 bg-white rounded">
+    <div>
+        {% if url is defined %}
+        <a href="{{ path(url) }}"><h3><</h3></a>
+        {% endif %}
+    </div>
+    <div><a href="{{ path('index') }}">Shack</a></div>
+    <div class="float-center">
+        <p>{{ header }}</p>
+    </div>
+</div>

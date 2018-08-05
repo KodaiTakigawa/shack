@@ -1,0 +1,15 @@
+{% include 'layouts/head.html.twig' %}
+<body>
+    {%  include 'layouts/header.html.twig' with { 'header': 'Snacks' } %}
+    <div class="list-group">
+        {% if snacks|length == 1 %}
+        <a href="{{ path('hack_list', {'snack_id': snacks.id, 'snack_name': snacks.name}) }}" class="list-group-item list-group-item-action">{{ snacks.name }}</a>
+        {% endif %}
+        {% for snack in snacks %}
+        {% dump(snack) %}
+        <a href="{{ path('hack_list', {'snack_id': snack.id, 'snack_name': snack.name}) }}" class="list-group-item list-group-item-action">{{ snack.name }}</a>
+        {% endfor %}
+    </div>
+    {% include 'layouts/script.html.twig' %}
+</body>
+</html>
